@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'b2-operator'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=b2-operator",
+                    "--package=b2-operator"
+                ],
+                "filter": {
+                    "name": "b2-operator",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "env": {
+                "RUST_LOG": "info",
+                "KUBECONFIG": "kubeconfig",
+            },
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'b2-operator'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=b2-operator",
+                    "--package=b2-operator"
+                ],
+                "filter": {
+                    "name": "b2-operator",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
